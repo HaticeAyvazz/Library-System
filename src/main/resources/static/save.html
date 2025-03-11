@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <title>LibrarySytem</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+   <div class="back">
+     <img class="back_foto" src="back_foto.png">
+       <div class="container">
+         <h1>LİBRARY  SYSTEM</h1>
+           <form id="bookform" autocomplete="off">
+         <label>Name</label>
+         <input type="text" id="title"  required/><br/>
+
+         <label>Author</label>
+         <input type="text" id="author"  required/><br/>
+
+         <label>Publisher</label>
+         <input type="text" id="publisher" required/><br/>
+
+           <label>Year Published</label>
+           <input type="number" id="yearPublished"  required/><br/>
+
+           <label>Page</label>
+           <input type="number" id="pages"/><br/>
+
+           <button type="button" onclick="saveBook()">Save</button>
+           <a href="listbook.html"><button type="button">List</button></a>
+            <a href="search.html"> <button type="button">Search</button></a>
+
+
+           </form>
+           <script>
+               function saveBook() {
+                   let book = {
+                       title: document.getElementById("title").value,
+                       author: document.getElementById("author").value,
+                       publisher: document.getElementById("publisher").value,
+                       yearPublished: parseInt(document.getElementById("yearPublished").value),
+                       pages: parseInt(document.getElementById("pages").value)
+                   };
+
+                   fetch("http://localhost:8080/rest/api/book/save", {
+                       method: "POST",
+                       headers: {
+                           "Content-Type": "application/json"
+                       },
+                       body: JSON.stringify(book)
+                   })
+
+                       .then(response => {
+                           if (!response.ok) {
+                               throw new Error('Network error: ' + response.statusText);
+                           }
+                           return response.json();
+                       })
+                       .then(data => {
+                           window.location.href = "http://localhost:63342/LibrarySystem/static/savesuccess.html"
+                       })
+                       .catch(error => console.error("Error:", error));
+               }
+           </script>
+       </div>
+
+
+   </div>
+
+</body>
+</html>
+

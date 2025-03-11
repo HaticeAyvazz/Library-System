@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="searchbook.css">
+</head>
+<body>
+<div class="back">
+  <img class="back-foto" src="back_foto.png">
+<div class="container">
+   <label></label>
+   <input type="text" name="search" id="search" placeholder="Search a book">
+    <button class="search-btn" onclick="searchBook()">🔍</button>
+    <button class="back-button" onclick="goBack()">⬅️ Go Back</button>
+    <table id="book-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Year Pusblished</th>
+            <th>Page</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</div>
+</div>
+<script>
+    function searchBook() {
+        let title = document.getElementById("search").value.trim();
+        //If the input is empty, do not call the API
+
+        if (title === "") {
+            alert("Please enter a book name");
+            return;
+        }
+
+        fetch(`http://localhost:8080/rest/api/book/search/${encodeURIComponent(title)}`)
+
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error("the book could not be found.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                let tableBody = document.querySelector("#book-table tbody");
+                tableBody.innerHTML = ""; //Clean the painting first
+
+                if (data.length === 0) {
+                    alert("the matching book could not be found");
+                    return;
+                }
+
+                data.forEach((book, index) => {
+                    let row = `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${book.title}</td>
+                            <td>${book.author}</td>
+                            <td>${book.publisher}</td>
+                            <td>${book.yearPublished}</td>
+                            <td>${book.pages}</td>
+                            <td>
+                                <button onclick="deleteBook(${book.id})">🗑️</button>
+                            </td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+
+                });
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error has occurred.Please try again.");
+            });
+    }
+
+    function deleteBook(bookId) {
+        if (!confirm("Are you sure you want to delete this book?")) {
+            return;
+        }
+
+        fetch(`http://localhost:8080/rest/api/book/delete/${bookId}`, {
+            method: "DELETE"
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("The book was successfully deleted");
+                    searchBook(); // Update the book list
+                } else {
+                    alert("The deletion process failed.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+    function goBack() {
+        window.location.href = "save.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".search-btn").addEventListener("click", searchBook);
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SuccessSave</title>
+    <style>
+        .back{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            z-index: 1;
+            object-fit: cover;
+        }
+        .container{
+            position: absolute;
+            background-color:  rgba(255, 255, 255, 0);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 700px;
+            height: 500px;
+            z-index: 2;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .container h1{
+            color: white;
+            text-align: center;
+            margin: 150px;
+            margin-left: 88px;
+            font-size: 55px;
+            font-family:"Agency FB";
+        }
+        .container p{
+            color: white;
+            text-align: center;
+            font-size:30px;
+            font-family: "Agency FB";
+            margin-top: -80px;
+        }
+        .back-button {
+            background-color: #256998;
+            color: white;
+            border: none;
+            padding:15px 25px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left:20px;
+            position:absolute;
+            top:15px;
+        }
+        .back-button:hover {
+            background-color:#704fe1;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="back">
+    <img class="back_foto" src="back_foto.png">
+    <div class="container">
+        <h1>🎉CONGRATULATIONS</h1>
+        <p>✨Book saving was successful</p>
+        <a href="save.html"><button type="button" class="back-button">⬅️ Go Back</button> </a>
+    </div>
+</div>
+
+</body>
+</html>

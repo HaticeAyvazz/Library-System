@@ -1,0 +1,76 @@
+.back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+.container{
+    position: absolute;
+    background-color:  rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 700px;
+    height: 500px;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+}
+.container h1{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family:"Agency FB";
+}
+.container label{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family:"Sans Serif Collection";
+    margin-left: 10px;
+}
+.container #title{
+    margin-left:88px;
+    width: 495px;
+    height: 30px;
+}
+.container #author{
+    margin-left: 79px;
+    width:495px;
+    height: 30px;
+}
+.container #publisher{
+    margin-left: 58px;
+    width: 494px;
+    height: 30px;
+}
+.container #yearPublished{
+    margin-left:10px;
+    width: 495px;
+    height: 30px;
+}
+.container #pages{
+    margin-left: 100px;
+    width: 495px;
+    height: 30px;
+}
+.container button{
+    margin-top: 50px;
+    margin-left: 70px;
+    width: 130px;
+    height: 40px;
+    cursor:pointer;
+    font-size: 23px;
+    color: #5e5b5b;
+    text-align: center;
+}
+input[type="text"]{
+    font-size: 20px;
+    font-family: "Sans Serif Collection";
+}
+input[type="number"]{
+    font-size: 20px;
+    font-family: "Sans Serif Collection";
+}
