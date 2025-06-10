@@ -10,9 +10,9 @@ Arayüz HTML, CSS ve JavaScript ile oluşturulmuş olup, veriler PostgreSQL veri
 ✅ PostgreSQL veritabanı entegrasyonu
 
 🛠️ Teknolojiler
-Backend: Spring Boot, Java, JPA, Hibernate
-      Frontend: HTML, CSS, JavaScript
-       Veritabanı: PostgreSQL
+*Backend: Spring Boot, Java, JPA, Hibernate       
+*Frontend: HTML, CSS, JavaScript
+*Veritabanı: PostgreSQL
 
 
 
