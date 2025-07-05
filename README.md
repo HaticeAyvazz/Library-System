@@ -1,18 +1,32 @@
-Library Management System
+# Library Management System
 
 Bu proje, Spring Boot ve Java kullanılarak geliştirilmiş bir Kütüphane Yönetim Sistemidir. Kullanıcılar, kitap ekleme, silme ve arama işlemlerini gerçekleştirebilir.
+
 Arayüz HTML, CSS ve JavaScript ile oluşturulmuş olup, veriler PostgreSQL veritabanında saklanmaktadır.
 
-🚀 Özellikler
+---
+
+## 🚀 Özellikler
+
 ✅ Kitap ekleme  silme
+
 ✅ Kitap adına göre arama
+
 ✅ RESTful API desteği
+
 ✅ PostgreSQL veritabanı entegrasyonu
 
-🛠️ Teknolojiler
-*Backend: Spring Boot, Java, JPA, Hibernate       
+---
+
+## 🛠️ Teknolojiler
+
+*Backend: Spring Boot, Java, JPA, Hibernate  
+
 *Frontend: HTML, CSS, JavaScript
+
 *Veritabanı: PostgreSQL
+
+
 
 
 
